@@ -78,10 +78,10 @@ ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'MINHASEN
 `create schema livraria default character set utf8mb4 colllate uft8mb4_0900_ai_ci;`
 
 # Criar databasess.
-  - CREATE SCHEMA livraria DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
-<!-- `create databases livraria; -->`
+  `CREATE SCHEMA livraria DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;`
+<!-- `create databases livraria; -->
 
-`# Criar tabelas
+# Criar tabelas
 `create table if not exists livro(
   id_livro integer not null,
   titulo char(50) not null,
@@ -98,12 +98,18 @@ ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'MINHASEN
   primary key(id_livro)
 );`
 
-CREATE TABLE IF NOT EXISTS pedidos(
+`CREATE TABLE IF NOT EXISTS pedidos(
   id_pedidos integer not null,
   id_livro integer not null,
   data_hora datetime not null,
   primary key(id_pedidos)
 );`
+
+`AlTER TABLE livro CHANGE id_livro id_livro integer auto_increment`;
+`INSERT INTO livro (titulo, resumo, paginas) VALUES ('neo', 'Viagem a matrix', '200');`
+`UPDATE livro SET  resumo = 'Guardicao dos sonhos' WHERE id_livro=2;`
+
+`drop data bases locadora;`
 
 `AlTER TABLE livro CHANGE id_livro id_livro integer auto_increment;`
 
@@ -197,8 +203,3 @@ Views é uma tabela virtual resultado de outra tabela
 - Executar select na view
   - `select * from livros_ate_100_reais;`
 
-AlTER TABLE livro CHANGE id_livro id_livro integer auto_increment;
-INSERT INTO livro (titulo, resumo, paginas) VALUES ('neo', 'Viagem a matrix', '200');
-UPDATE livro SET  resumo = 'Guardicao dos sonhos' WHERE id_livro=2;
-
-drop data bases locadora;
