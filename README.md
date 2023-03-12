@@ -22,10 +22,15 @@
 - quit
 
 # STOP/START/RESTART SERVIDOR MYSQL
-
+- systemctl stop mysql
+- systemctl start mysql
+- systemctl restart mysql
 - sudo /etc/init.d/mysql stop
 - sudo /etc/init.d/mysql start
-- systemctl restart mysql
+
+# Desabilitar inicialização automática no debian
+- systemctl disable mysql
+  - Isso remove o link simbólico para o serviço do MySQL no diretório /etc/systemd/system/multi-user.target.wants, que é usado pelo sistema para iniciar serviços automaticamente durante a inicialização.
 
 # INSTALAR MYSQL-WORKBENCH-COMMUNITY
 
